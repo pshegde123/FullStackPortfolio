@@ -1,3 +1,22 @@
+/*****************************************************************************
+  ____                                  _____ _
+ / ___|___  ___ _ __ ___   ___  ___    |_   _| |__   ___ _ __ ___   ___  ___
+| |   / _ \/ __| '_ ` _ \ / _ \/ __|_____| | | '_ \ / _ \ '_ ` _ \ / _ \/ __|
+| |__| (_) \__ \ | | | | | (_) \__ \_____| | | | | |  __/ | | | | |  __/\__ \
+ \____\___/|___/_| |_| |_|\___/|___/     |_| |_| |_|\___|_| |_| |_|\___||___/
+
+******************************************************************************/
+
+/************ Site Main Js **************************************
+
+    Template Name: Watson - Resume/Vcard Template
+    Author: cosmos-themes
+    Envato Profile: https://themeforest.net/user/cosmos-themes
+    version: 1.0
+    Copyright: 2018
+
+****************************************************************/
+
 /*======== Window Load Function ========*/
 $(window).on('load', function() {
 
@@ -93,7 +112,28 @@ $(document).ready(function() {
         },
     });
 
-  
+    /*========Testimonials OwlCarousel Setup========*/
+    $(".testimonials .owl-carousel").owlCarousel({
+        loop: true,
+        margin: 30,
+        autoplay: true,
+        smartSpeed: 500,
+        responsiveClass: true,
+        dots: false,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            800: {
+                items: 1,
+            },
+            1000: {
+                items: 2,
+            },
+        },
+    });
+
     /*======== Skills Progress Animation ========*/
     if($('.skills').length > 0) {
 
@@ -148,7 +188,14 @@ $(document).ready(function() {
         }
     });
 
-  
+    /*======== Portfolio Video Link Setup ========*/
+    $('.portfolio-items .video-link').magnificPopup({
+        type: 'iframe',
+        gallery: {
+            enabled: true
+        }
+    });
+
     /*======== Portfolio Ajax Link Setup ========*/
     ajaxPortfolioSetup($('.portfolio-items .ajax-link'), $('.ajax-portfolio-popup'));
 
@@ -283,7 +330,7 @@ function contactFormSetup() {
         if( required === 0 ) {
             $.ajax({
                 type: 'POST',
-                url: 'mail.php',
+                url: 'https://formspree.io/mrgqwnqp',
                 data: {
                     cf_name: name,
                     cf_email: email,
